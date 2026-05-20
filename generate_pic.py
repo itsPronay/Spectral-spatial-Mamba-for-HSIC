@@ -1,6 +1,6 @@
 import numpy as np
 import sklearn
-
+import os
 import matplotlib.pyplot as plt
 
 indianpines_colors = np.array([[0, 0, 0],
@@ -26,7 +26,7 @@ def classification_map(img, ground_truth, dpi, save_path):
     return 0 
 
 
-def generate(image, gt, index, nTrain_perClass, nvalid_perClass, test_pred, OA, halfsize, dataset, day_str, num, model_name):  
+def generate(image, gt, index, nTrain_perClass, nvalid_perClass, test_pred, OA, halfsize, dataset, day_str, num, model_name): 
     number_of_rows = np.size(image,0)
     number_of_columns = np.size(image,1)
      
@@ -54,6 +54,6 @@ def generate(image, gt, index, nTrain_perClass, nvalid_perClass, test_pred, OA, 
     predicted_thematic_map = predicted_thematic_map[halfsize:number_of_rows -halfsize,halfsize:number_of_columns-halfsize,: ]
     gt_thematic_map = gt_thematic_map[halfsize:number_of_rows -halfsize,halfsize:number_of_columns-halfsize,: ]     
     classification_map(predicted_thematic_map, gt, 600,
-                       './classification_maps/' + dataset + '_' + day_str +'_' + str(num) +'_OA_'+ str(round(OA, 2)) + '_' + model_name +  '.png')
+                       'classification_maps/' + dataset + '_' + day_str +'_' + str(num) +'_OA_'+ str(round(OA, 2)) + '_' + model_name +  '.png')
     
     return predicted_thematic_map, gt_thematic_map

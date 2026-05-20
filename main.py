@@ -3,6 +3,7 @@ import time
 import datetime
 import numpy as np
 import argparse 
+import os
 
 import torch
 import torch.nn as nn
@@ -166,9 +167,10 @@ for num in range(0, num_of_ex):
     TESTING_TIME.append(toc2 - toc1)
     ELEMENT_ACC = np.array(AC)
     
-np.save('./record/'+ net_name +'_'+ day_str + '_' +dataset+'_'+str(train_image.shape[0]) + '_epoch_' + str(epoch) + '_spa_patch_size_' + str(spa_patch_size) +'_spe_patch_size_'+str(spe_patch_size) + '_embed_dim_'+str(embed_dim)+'_depth _'+str(depth)+ '_use_global_'+str(use_global) +'_use_bi _'+str(use_bi)+'_hdi_chans_'+str(hid_chans)+'_lr _'+str(lr)+'_lrdecay_'+str(gamma)+ '_fusion_'+str(args.use_fu) +'_.npy', result)
+os.makedirs('record', exist_ok=True)
+np.save('record/'+ net_name +'_'+ day_str + '_' +dataset+'_'+str(train_image.shape[0]) + '_epoch_' + str(epoch) + '_spa_patch_size_' + str(spa_patch_size) +'_spe_patch_size_'+str(spe_patch_size) + '_embed_dim_'+str(embed_dim)+'_depth _'+str(depth)+ '_use_global_'+str(use_global) +'_use_bi _'+str(use_bi)+'_hdi_chans_'+str(hid_chans)+'_lr _'+str(lr)+'_lrdecay_'+str(gamma)+ '_fusion_'+str(args.use_fu) +'_.npy', result)
     
-record_output(OA, AA, KA, ELEMENT_ACC, CM, TRAINING_TIME, TESTING_TIME, './record/' + net_name +'_'+ day_str + '_' +dataset+'_'+str(train_image.shape[0])+ '_epoch_' + str(epoch)+ '_spa_patch_size_' +str(spa_patch_size) +'_spe_patch_size_'+str(spe_patch_size) + '_embed_dim_'+str(embed_dim)+'_depth _'+str(depth)+ '_use_global_'+str(use_global) +'_use_bi _'+str(use_bi)+'_hdi_chans_'+str(hid_chans)+'_lr _'+str(lr)+'_lrdecay_'+str(gamma)+ '_fusion_'+str(args.use_fu) + '_end.txt') 
+record_output(OA, AA, KA, ELEMENT_ACC, CM, TRAINING_TIME, TESTING_TIME, 'record/' + net_name +'_'+ day_str + '_' +dataset+'_'+str(train_image.shape[0])+ '_epoch_' + str(epoch)+ '_spa_patch_size_' +str(spa_patch_size) +'_spe_patch_size_'+str(spe_patch_size) + '_embed_dim_'+str(embed_dim)+'_depth _'+str(depth)+ '_use_global_'+str(use_global) +'_use_bi _'+str(use_bi)+'_hdi_chans_'+str(hid_chans)+'_lr _'+str(lr)+'_lrdecay_'+str(gamma)+ '_fusion_'+str(args.use_fu) + '_end.txt') 
 
 jingdu = np.mean(result, axis = -1)
 print(jingdu)
