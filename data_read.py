@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.io as sio
 from sklearn.decomposition import PCA
+import os
 
 def pca_whitening(image, number_of_pc):
 
@@ -18,24 +19,24 @@ def pca_whitening(image, number_of_pc):
 
 def load_data(dataset):
     ###下面是讲解python怎么读取.mat文件以及怎么处理得到的结果###
-    data_dir = '/home/hlb/dataset'
+    current_dir = os.getcwd()
     if dataset == 'Indian':
-        image_file = data_dir + '/Indian/Indian_pines_corrected.mat'
-        label_file = data_dir + '/Indian/Indian_pines_gt.mat'
+        image_file = current_dir + '/ip/indian_pines_corrected.mat'
+        label_file = current_dir + '/Indian/Indian_pines_gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['indian_pines_corrected']
         label = label_data['indian_pines_gt']
     elif dataset == 'Pavia':
-        image_file = data_dir + '/Pavia/Pavia.mat'
-        label_file = data_dir + '/Pavia/Pavia_groundtruth.mat'
+        image_file = current_dir + '/Pavia/PaviaU.mat'
+        label_file = current_dir + '/Pavia/PaviaU_gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['paviaU']#pavia1
         label = label_data['paviaU_gt']#pavia1
     elif dataset == 'Houston':
-        image_file = data_dir + '/Houston/CASI.mat'
-        label_file = data_dir + '/Houston/CASI_gnd_flag.mat'
+        image_file = current_dir + 'Houston13.mat'
+        label_file = current_dir + 'Houston13_7gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['CASI']
