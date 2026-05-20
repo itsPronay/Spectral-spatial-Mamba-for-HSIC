@@ -22,14 +22,14 @@ def load_data(dataset):
     current_dir = os.getcwd()
     if dataset == 'Indian':
         image_file = current_dir + '/ip/indian_pines_corrected.mat'
-        label_file = current_dir + '/Indian/Indian_pines_gt.mat'
+        label_file = current_dir + '/ip/Indian_pines_gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['indian_pines_corrected']
         label = label_data['indian_pines_gt']
     elif dataset == 'Pavia':
-        image_file = current_dir + '/Pavia/PaviaU.mat'
-        label_file = current_dir + '/Pavia/PaviaU_gt.mat'
+        image_file = current_dir + '/PaviaU.mat'
+        label_file = current_dir + 'PaviaU_gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['paviaU']#pavia1
