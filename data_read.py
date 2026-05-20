@@ -28,7 +28,7 @@ def load_data(dataset):
         image = image_data['indian_pines_corrected']
         label = label_data['indian_pines_gt']
     elif dataset == 'Pavia':
-        image_file = current_dir + '/PaviaU.mat'
+        image_file = current_dir + 'PaviaU.mat'
         label_file = current_dir + 'PaviaU_gt.mat'
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
