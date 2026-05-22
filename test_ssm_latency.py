@@ -7,7 +7,7 @@ from mamba import SSM
 
 # Argument parser
 parser = argparse.ArgumentParser(description='Test SSM latency with different d_model values')
-parser.add_argument('--d_model', type=str, default='64,96,128,192,256', help='Model dimensions as comma-separated values (default: 64,96,128,192,256)')
+parser.add_argument('--d_model', type=str, default='8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,8388608', help='Model dimensions as comma-separated values (default: 64,96,128,192,256)')
 parser.add_argument('--d_state', type=int, default=4, help='State dimension (default: 4)')
 parser.add_argument('--ssm_ratio', type=int, default=2, help='SSM ratio (default: 2)')
 parser.add_argument('--seq_len', type=int, default=256, help='Sequence length (default: 256)')
@@ -20,17 +20,6 @@ d_model_values = [int(x.strip()) for x in args.d_model.split(',')]
 # Device setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-print("=" * 110)
-print("COMMAND LINE ARGUMENTS")
-print("=" * 110)
-print(f"d_model:    {args.d_model}")
-print(f"d_state:    {args.d_state}")
-print(f"ssm_ratio:  {args.ssm_ratio}")
-print(f"seq_len:    {args.seq_len}")
-print(f"batch_size: {args.batch_size}")
-print(f"device:     {device}")
-print("=" * 110 + "\n")
-
 print(f"Testing d_model values: {d_model_values}")
 print(f"Fixed parameters: d_state={args.d_state}, ssm_ratio={args.ssm_ratio}")
 print(f"Fixed input: seq_len={args.seq_len}, batch_size={args.batch_size}\n")
@@ -38,10 +27,6 @@ print(f"Fixed input: seq_len={args.seq_len}, batch_size={args.batch_size}\n")
 # Fixed test parameters
 warmup_runs = 5
 test_runs = 10
-
-print("=" * 110)
-print("Running SSM Latency Tests for Different d_model Values...")
-print("=" * 110 + "\n")
 
 results = []
 
