@@ -122,11 +122,11 @@ for d_state in d_state_values:
 print("\n" + "=" * 120)
 print("LATENCY COMPARISON RESULTS")
 print("=" * 120)
-print(f"{'d_model':<10} {'d_state':<10} {'ssm_ratio':<12} {'Parameters':<15} {'Avg Latency (ms)':<18} {'Throughput (tok/s)':<20}")
+print(f"{'d_model':<10} {'d_state':<10} {'ssm_ratio':<12} {'Parameters':<15} {'Avg Latency (ms)':<18} ")
 print("-" * 120)
 
 for result in results:
-    print(f"{result['d_model']:<10} {result['d_state']:<10} {result['ssm_ratio']:<12} {result['num_params']:<15,} {result['avg_latency']:<18.4f} {result['throughput']:<20,.0f}")
+    print(f"{result['d_model']:<10} {result['d_state']:<10} {result['ssm_ratio']:<12} {result['num_params']:<15,} {result['avg_latency']:<18.4f} ")
 
 print("=" * 120)
 
