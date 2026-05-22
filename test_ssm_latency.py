@@ -10,9 +10,9 @@ parser = argparse.ArgumentParser(description='Test SSM latency with different d_
 parser.add_argument('--d_model', type=str, default='8,16,32,64,128,256,512,1024,2048,4096,8192,16384', help='Model dimensions as comma-separated values (default: 64,96,128,192,256)')
 parser.add_argument('--d_state', type=int, default=4, help='State dimension (default: 4)')
 parser.add_argument('--ssm_ratio', type=int, default=2, help='SSM ratio (default: 2)')
-parser.add_argument('--seq_len', type=int, default=256, help='Sequence length (default: 256)')
-# considering batch is maximum as it can get, 
-parser.add_argument('--batch_size', type=int, default=10000000, help='Batch size (default: 4)')
+
+parser.add_argument('--seq_len', type=int, default=128, help='Sequence length (default: 256)')
+parser.add_argument('--batch_size', type=int, default=128, help='Batch size (default: 4)')
 
 args = parser.parse_args()
 
