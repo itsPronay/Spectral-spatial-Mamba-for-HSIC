@@ -11,7 +11,7 @@ parser.add_argument('--d_model', type=str, default='8,16,32,64,128,256,512,1024,
 parser.add_argument('--d_state', type=int, default=4, help='State dimension (default: 4)')
 parser.add_argument('--ssm_ratio', type=int, default=2, help='SSM ratio (default: 2)')
 
-parser.add_argument('--seq_len', type=int, default=128, help='Sequence length (default: 256)')
+parser.add_argument('--seq_len', type=int, default=256, help='Sequence length (default: 256)')
 parser.add_argument('--batch_size', type=int, default=128, help='Batch size (default: 4)')
 
 args = parser.parse_args()
