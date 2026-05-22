@@ -8,11 +8,11 @@ from mamba import SSM
 
 # Argument parser
 parser = argparse.ArgumentParser(description='Test SSM latency with different parameter combinations')
-parser.add_argument('--d_model', type=str, default='64,96,128,192,256', help='Model dimensions as comma-separated values')
+parser.add_argument('--d_model', type=str, default='8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536', help='Model dimensions as comma-separated values')
 parser.add_argument('--d_state', type=str, default='4,8,16', help='State dimensions as comma-separated values')
 parser.add_argument('--ssm_ratio', type=str, default='2,4', help='SSM ratios as comma-separated values')
 parser.add_argument('--seq_len', type=int, default=256, help='Sequence length (default: 256)')
-parser.add_argument('--batch_size', type=int, default=1, help='Batch size (default: 1)')
+parser.add_argument('--batch_size', type=int, default=128, help='Batch size (default: 1)')
 args = parser.parse_args()
 
 # Parse multiple values
