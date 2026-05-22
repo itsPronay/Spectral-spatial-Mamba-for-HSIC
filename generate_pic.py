@@ -21,6 +21,12 @@ def classification_map(img, ground_truth, dpi, save_path):
     fig.add_axes(ax)
 
     ax.imshow(img)
+    
+    # Ensure the directory exists before saving
+    save_dir = os.path.dirname(save_path)
+    if save_dir and not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    
     fig.savefig(save_path, dpi=dpi)
     
     return 0 
