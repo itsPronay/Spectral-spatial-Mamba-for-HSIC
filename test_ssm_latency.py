@@ -20,10 +20,20 @@ d_model_values = [int(x.strip()) for x in args.d_model.split(',')]
 # Device setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-print(f"Testing on device: {device}")
+print("=" * 110)
+print("COMMAND LINE ARGUMENTS")
+print("=" * 110)
+print(f"d_model:    {args.d_model}")
+print(f"d_state:    {args.d_state}")
+print(f"ssm_ratio:  {args.ssm_ratio}")
+print(f"seq_len:    {args.seq_len}")
+print(f"batch_size: {args.batch_size}")
+print(f"device:     {device}")
+print("=" * 110 + "\n")
+
 print(f"Testing d_model values: {d_model_values}")
-print(f"d_state={args.d_state}, ssm_ratio={args.ssm_ratio}")
-print(f"Sequence length: {args.seq_len}, Batch size: {args.batch_size}\n")
+print(f"Fixed parameters: d_state={args.d_state}, ssm_ratio={args.ssm_ratio}")
+print(f"Fixed input: seq_len={args.seq_len}, batch_size={args.batch_size}\n")
 
 # Fixed test parameters
 warmup_runs = 5
