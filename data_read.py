@@ -21,22 +21,22 @@ def load_data(dataset):
     ###下面是讲解python怎么读取.mat文件以及怎么处理得到的结果###
     current_dir = os.getcwd()
     if dataset == 'Indian':
-        image_file = current_dir + '/ip/indian_pines_corrected.mat'
-        label_file = current_dir + '/ip/indian_pines_gt.mat'
+        image_file = os.path.join(current_dir, 'indian_pines_corrected.mat')
+        label_file = os.path.join(current_dir, 'indian_pines_gt.mat')
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['indian_pines_corrected']
         label = label_data['indian_pines_gt']
     elif dataset == 'Pavia':
-        image_file = current_dir + 'PaviaU.mat'
-        label_file = current_dir + 'PaviaU_gt.mat'
+        image_file = os.path.join(current_dir, 'PaviaU.mat')
+        label_file = os.path.join(current_dir, 'PaviaU_gt.mat')
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['paviaU']#pavia1
         label = label_data['paviaU_gt']#pavia1
     elif dataset == 'Houston':
-        image_file = current_dir + 'Houston13.mat'
-        label_file = current_dir + 'Houston13_7gt.mat'
+        image_file = os.path.join(current_dir, 'Houston13.mat')
+        label_file = os.path.join(current_dir, 'Houston13_7gt.mat')
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
         image = image_data['CASI']
