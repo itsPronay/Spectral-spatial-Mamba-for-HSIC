@@ -41,8 +41,29 @@ def load_data(dataset):
         label_data = sio.loadmat(label_file)
         image = image_data['CASI']
         label = label_data['gnd_flag']  # houston
+    elif dataset == 'Utopia':
+        image_file = os.path.join(current_dir, 'Utopia.mat')
+        label_file = os.path.join(current_dir, 'Utopia_gt.mat')
+        image_data = sio.loadmat(image_file)
+        label_data = sio.loadmat(label_file)
+        image = image_data['Utopia']  # utopia
+        label = label_data['Utopia_gt']  # utopia
+    elif dataset == 'NF':
+        image_file = os.path.join(current_dir, 'NiliFossae.mat')
+        label_file = os.path.join(current_dir, 'NiliFossae_gt.mat')
+        image_data = sio.loadmat(image_file)
+        label_data = sio.loadmat(label_file)
+        image = image_data['NiliFossae']  # nf
+        label = label_data['NiliFossae_gt']  # nf
+    elif dataset == 'Holden':
+        image_file = os.path.join(current_dir, 'Holden.mat')
+        label_file = os.path.join(current_dir, 'Holden_gt.mat')
+        image_data = sio.loadmat(image_file)
+        label_data = sio.loadmat(label_file)
+        image = image_data['Holden']  # holden
+        label = label_data['Holden_gt']  # holden
     else:
-        raise Exception('dataset does not find')
+        raise Exception('Could not find dataset')
     image = image.astype(np.float32)
     return image, label
 

@@ -21,7 +21,7 @@ from model import mamba_1D_model, mamba_2D_model, mamba_SS_model
 parser = argparse.ArgumentParser()
 
 # Pre training
-parser.add_argument('--dataset', choices=['Indian', 'Pavia', 'Houston'], default='Pavia')
+parser.add_argument('--dataset', choices=['Indian', 'Pavia', 'Houston', 'Utopia', 'NF', 'Holden'], default='Pavia')
 parser.add_argument('--train_num', type=int, default=20)
 parser.add_argument('-windowsize', type=int, default=27)
 parser.add_argument('--type', type=str, default='none')
