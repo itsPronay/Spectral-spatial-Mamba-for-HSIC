@@ -60,8 +60,8 @@ def load_data(dataset):
         label_file = os.path.join(current_dir, 'Holden_gt.mat')
         image_data = sio.loadmat(image_file)
         label_data = sio.loadmat(label_file)
-        image = image_data['Holden']  # holden
-        label = label_data['Holden_gt']  # holden
+        image = image_data['holden']  # holden
+        label = label_data['holden_gt']  # holden
     else:
         raise Exception('Could not find dataset')
     image = image.astype(np.float32)
